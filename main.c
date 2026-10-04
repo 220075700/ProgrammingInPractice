@@ -25,7 +25,6 @@ void displayMenu(void)
     printf("6. Exit\n");
 }
 
-/* Sends the user to the correct module. Returns 1 to keep running, 0 to exit. */
 int handleChoice(int choice)
 {
     switch (choice)
