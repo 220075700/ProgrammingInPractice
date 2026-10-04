@@ -1,6 +1,3 @@
-/* integration.c - connects the modules to the report functions.
-   The report functions need plain arrays, but each module keeps its own
-   data. This file collects the data and passes it to report.c. */
 #include <stdio.h>
 #include <string.h>
 #include "integration.h"
@@ -10,16 +7,14 @@
 #include "assets.h"
 #include "report.h"
 
-#define REPORT_TEXT_LEN 30      /* report.c expects text of width 30 */
+#define REPORT_TEXT_LEN 30     
 #define MAX_ASSETS_REPORT 100
 
-/* Data owned by other modules */
 extern Employee employees[];
 extern int employeeCount;
 extern Asset assets[];
 extern int assetCount;
 
-/* Copy text safely so it never overflows the 30-character report arrays */
 static void copyText(char destination[], const char source[], int size)
 {
     strncpy(destination, source, size - 1);
@@ -40,7 +35,6 @@ static void showEmployeeReport(void)
 
 static void showBudgetReport(void)
 {
-    /* TODO: replace with real budget data when budget.c is integrated */
     float allocated[1] = {0};
     float spent[1] = {0};
     char dept[1][REPORT_TEXT_LEN];
@@ -74,7 +68,7 @@ static void showAssetReport(void)
     for (i = 0; i < assetCount; i++)
     {
         copyText(names[i], assets[i].name, REPORT_TEXT_LEN);
-        copyText(types[i], "N/A", REPORT_TEXT_LEN);   /* TODO: asset type field */
+        copyText(types[i], "N/A", REPORT_TEXT_LEN);   
         values[i] = (float)assets[i].value;
     }
     assetReport(names, types, values, assetCount);
