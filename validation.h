@@ -1,7 +1,7 @@
 #ifndef VALIDATION_H
 #define VALIDATION_H
 
-/
+
 #define MAX_NAME_LEN 50
 #define MAX_AMOUNT   1000000000000.0   
 
