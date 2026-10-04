@@ -4,24 +4,21 @@
 #include <stdlib.h>
 #include "validation.h"
 
-/* If the keyboard input is closed (e.g. Ctrl+D), stop instead of looping */
 static void handleEndOfInput(void)
 {
     printf("\nInput closed. Exiting MFMS.\n");
     exit(0);
 }
 
-/* Removes leftover characters (e.g. the Enter key) from the input buffer */
 void clearInputBuffer(void)
 {
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF)
     {
-        /* discard */
+       
     }
 }
 
-/* Returns 1 if the text is empty or contains only spaces/tabs */
 int isBlank(const char text[])
 {
     int i;
@@ -109,7 +106,6 @@ void getValidString(const char prompt[], char text[], int size)
 
         length = (int)strlen(temp);
 
-        /* remove the newline, or discard the rest of an over-long line */
         if (length > 0 && temp[length - 1] == '\n')
         {
             temp[length - 1] = '\0';
