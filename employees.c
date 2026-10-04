@@ -7,7 +7,6 @@ Employee employees[MAX_EMPLOYEES];
 
 int employeeCount = 0;
 
-/* Calculate gross employee salary */
 float calculateSalary(Employee employee)
 {
     float grossSalary;
@@ -17,7 +16,6 @@ float calculateSalary(Employee employee)
     return grossSalary;
 }
 
-/* Returns the position of an employee ID, or -1 if not found */
 static int findEmployeeIndex(int id)
 {
     int i;
@@ -32,7 +30,6 @@ static int findEmployeeIndex(int id)
     return -1;
 }
 
-/* Add a new employee */
 void addEmployee(void)
 {
     int id;
@@ -57,7 +54,7 @@ void addEmployee(void)
     getValidString("Enter Employee Name: ", employees[employeeCount].name, 50);
     getValidString("Enter Department: ", employees[employeeCount].department, 50);
 
-    /* getValidDouble rejects negative values and repeats until valid */
+
     employees[employeeCount].basicSalary =
         (float)getValidDouble("Enter Basic Salary: ", 0);
     employees[employeeCount].housingAllowance =
@@ -70,7 +67,6 @@ void addEmployee(void)
     printf("\nEmployee added successfully!\n");
 }
 
-/* Display all employees */
 void displayEmployees(void)
 {
     if (employeeCount == 0)
@@ -100,7 +96,6 @@ void displayEmployees(void)
     }
 }
 
-/* Search for an employee by ID */
 void searchEmployee(void)
 {
     int searchId;
@@ -133,7 +128,6 @@ void searchEmployee(void)
     printf("Gross Salary: N$%.2f\n", calculateSalary(employees[index]));
 }
 
-/* Employee Management Menu */
 void employeeMenu(void)
 {
     int choice;
